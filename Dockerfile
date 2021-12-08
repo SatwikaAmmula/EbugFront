@@ -3,7 +3,7 @@ FROM node:latest as node
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build --prod
+RUN npm run-script build
 #stage 2
 FROM nginx:alpine
 COPY --from=node /app/dist/ebugfront /usr/share/nginx/html
